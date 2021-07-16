@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-180x180.png">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Having gone through projects available for Hack Cambridge 101, we are inspired by the Smart Waste challenge put forwarded by Reply. This is because current waste collection system is rather inefficien">
+  <meta name="author" content="Ziyi Zhu">
+  <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
+  
+  <title>Waste collection and management using IoT and machine learning - Creative Overdose</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"ziyizhu.me","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Creative Overdose</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://zhuziyi.wixsite.com/portfolio">
+                <i class="iconfont icon-brush"></i>
+                Portfolio
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Waste collection and management using IoT and machine learning">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ziyi Zhu
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-25 15:03" pubdate>
+        January 25, 2020 3:03 PM
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      510 words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> views
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Waste collection and management using IoT and machine learning</h1>
+            
+              <p class="note note-info">
+                
+                  Last edited on: July 16, 2021 10:49 PM
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>Having gone through projects available for Hack Cambridge 101, we are inspired by the Smart Waste challenge put forwarded by Reply. This is because current waste collection system is rather inefficient and a lot of resources has been wasted during the recycling process. Therefore, this project aims to address such urgent need for improvement in this sector.</p>
+<span id="more"></span>
+
+<p><img src="bin.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>Our system has a number of key functions:</p>
+<ul>
+<li>Classifies incoming waste into categories (Recyclable/Organic)</li>
+<li>Detects whether the bin is full</li>
+<li>Optimizes waste collection routes</li>
+</ul>
+<h2 id="Hardware-design"><a href="#Hardware-design" class="headerlink" title="Hardware design"></a>Hardware design</h2><p>For the hardware, we started by building a bin using a cardboard box. Then we attached an Arduino board to the box which acts as the main control system. A servo motor, an ultrasonic sensor, a camera and a LED were also installed.</p>
+<h3 id="Arduino-wiring"><a href="#Arduino-wiring" class="headerlink" title="Arduino wiring"></a>Arduino wiring</h3><p><img src="circuit.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Pinout"><a href="#Pinout" class="headerlink" title="Pinout"></a>Pinout</h3><p>The pintout for Arduino can ba changed in <code>arduino/Bin.ino</code>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> trigPin = <span class="hljs-number">9</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> echoPin = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ledPin = <span class="hljs-number">13</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> buttonPin = A2;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</h3><p>Spy camera is used for Computer Vision.</p>
+<p><img src="camera.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Sensor"><a href="#Sensor" class="headerlink" title="Sensor"></a>Sensor</h3><p>An ultrasonic sensor is used to detect the capacity of the bin.</p>
+<p><img src="sensor.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Software-control-and-image-recognition"><a href="#Software-control-and-image-recognition" class="headerlink" title="Software control and image recognition"></a>Software control and image recognition</h2><p>In terms of the software, Arduino code is used to control all components. A Keras model detects whether the object is recyclable. A python API was also built to calculate the optimized route and plot out the route on Google map.</p>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>Install Keras from PyPI:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo pip install Keras<br></code></pre></td></tr></table></figure>
+
+<p>Install TensorFlow and OpenCV from GitHub source.</p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>Connect the machine to Arduino and run <code>python/predict.py</code>.</p>
+<h3 id="Recycling-with-computer-vision"><a href="#Recycling-with-computer-vision" class="headerlink" title="Recycling with computer vision"></a>Recycling with computer vision</h3><p>Recyclable wastes will be dropped inside the bin.</p>
+<p><img src="bag.gif" srcset="/img/loading.gif" lazyload><br><img src="can.gif" srcset="/img/loading.gif" lazyload></p>
+<p>Non-recyclable wastes will be dropped outside the bin.</p>
+<p><img src="banana.gif" srcset="/img/loading.gif" lazyload><br><img src="orange.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Bin-capacity-detection"><a href="#Bin-capacity-detection" class="headerlink" title="Bin capacity detection"></a>Bin capacity detection</h3><p>If the bin is full, the green LED will light up.</p>
+<p><img src="full.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Route-planning-with-OptimoRoute-and-Google-Map-Services"><a href="#Route-planning-with-OptimoRoute-and-Google-Map-Services" class="headerlink" title="Route planning with OptimoRoute and Google Map Services"></a>Route planning with OptimoRoute and Google Map Services</h3><p>When the bin is full, its address will be uploaded and order for waste pick up will be submitted to the OptimoRoute website. The best route can be obtained from API and plotted using Google Map.</p>
+<p><img src="route.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Lessons-learned"><a href="#Lessons-learned" class="headerlink" title="Lessons learned"></a>Lessons learned</h2><p>The biggest challenge we met was due to the poor quality of the camera. We initially trained the ML model using high-quality photo datasets from Imagenet. However, this didn’t work well initially as the photos collected using the spy camera were of low quality, contrast and saturation. We recognized the problem and manually collected another dataset using the spy camera. In the end, the accuracy reached around 90%. Higher accuracy can be achieved using a better camera.</p>
+<h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next"></a>What’s next</h2><p>The core of the project is the ML model. We only had time to collect around 100 photos using the spy camera, if we had more time we could have collected more photos so that we have a larger training set. We expect this to improve its classification accuracy. The concept and the technology developed can be implemented on a large scale in urban regions, where we envision IoT enabled bins to be used in parks, public areas and homes. These devices will enable more efficient waste collection methods to be used by the council and are expected to greatly reduce the resources needed to collect public wastes. </p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Projects/">Projects</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IoT/">IoT</a>
+                    
+                      <a class="hover-with-bg" href="/tags/TensorFlow/">TensorFlow</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    All articles in this blog are used except for special statements <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="nofollow noopener noopener">CC BY-SA 4.0</a> reprint policy. If reproduced, please indicate source <a href="https://ziyizhu.me/about" rel="nofollow noopener">Ziyi Zhu</a>!
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/02/cv-robot-navigation/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Autonomous robot navigation using computer vision</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/02/hdr-lf-capture/">
+                        <span class="hidden-mobile">Hardware and software for capturing High Dynamic Range light fields</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://ziyizhu.me/2020/01/25/smart-waste/';
+          this.page.identifier = '/2020/01/25/smart-waste/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'ziyi-zhu' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_pv"></span>
+             views
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_uv"></span>
+             visitors
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
