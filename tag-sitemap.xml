@@ -3,6 +3,146 @@
 
 
     <url>
+        <loc>https://ziyizhu.me/tags/Bond/</loc>
+        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Capital-market/</loc>
+        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Finance/</loc>
+        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Quant/</loc>
+        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Data-analysis/</loc>
+        <lastmod>2021-07-16T23:58:22.692Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Processing/</loc>
+        <lastmod>2021-07-16T23:58:22.692Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Javascript/</loc>
+        <lastmod>2021-07-16T23:58:22.692Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Node-js/</loc>
+        <lastmod>2021-07-16T23:58:22.692Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Machine-learning/</loc>
+        <lastmod>2021-07-16T23:57:36.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/TensorFlow/</loc>
+        <lastmod>2021-07-16T23:57:36.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/IoT/</loc>
+        <lastmod>2021-07-16T23:57:36.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/GANs/</loc>
+        <lastmod>2021-07-16T23:57:27.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Python/</loc>
+        <lastmod>2021-07-16T23:57:27.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Image-processing/</loc>
+        <lastmod>2021-07-16T23:57:19.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Computer-graphics/</loc>
+        <lastmod>2021-07-16T23:57:19.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Computer-vision/</loc>
+        <lastmod>2021-07-16T23:57:19.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Control/</loc>
+        <lastmod>2021-07-16T23:57:06.821Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/OpenCV/</loc>
+        <lastmod>2021-07-16T23:57:06.821Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/AR/</loc>
+        <lastmod>2021-07-16T23:56:28.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Matter-js/</loc>
+        <lastmod>2021-07-16T23:56:28.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://ziyizhu.me/tags/Computer/</loc>
         <lastmod>2021-07-16T22:54:06.019Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,118 +166,6 @@
     <url>
         <loc>https://ziyizhu.me/tags/Cambridge/</loc>
         <lastmod>2021-07-16T22:54:06.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Computer-graphics/</loc>
-        <lastmod>2021-07-16T21:51:40.421Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/IoT/</loc>
-        <lastmod>2021-07-16T21:51:40.421Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Data-analysis/</loc>
-        <lastmod>2021-07-16T21:49:22.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Processing/</loc>
-        <lastmod>2021-07-16T21:49:22.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Javascript/</loc>
-        <lastmod>2021-07-16T21:49:22.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Node-js/</loc>
-        <lastmod>2021-07-16T21:49:22.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Machine-learning/</loc>
-        <lastmod>2021-07-16T21:49:13.130Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/TensorFlow/</loc>
-        <lastmod>2021-07-16T21:49:13.130Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Generative/</loc>
-        <lastmod>2021-07-16T21:48:15.982Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Python/</loc>
-        <lastmod>2021-07-16T21:48:15.982Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Image-processing/</loc>
-        <lastmod>2021-07-16T21:48:02.507Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Computer-vision/</loc>
-        <lastmod>2021-07-16T21:48:02.507Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Control/</loc>
-        <lastmod>2021-07-16T21:46:59.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/OpenCV/</loc>
-        <lastmod>2021-07-16T21:46:59.353Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/AR/</loc>
-        <lastmod>2021-07-16T21:43:21.256Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Matter-js/</loc>
-        <lastmod>2021-07-16T21:43:21.256Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -18,7 +18,7 @@
   <meta name="author" content="Ziyi Zhu">
   <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
   
-  <title>Autonomous robot navigation using computer vision - Creative Overdose</title>
+  <title>Autonomous Robot Navigation Using Computer Vision - Creative Overdose</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Autonomous robot navigation using computer vision">
+            <span class="h2" id="subtitle" title="Autonomous Robot Navigation Using Computer Vision">
               
             </span>
 
@@ -250,11 +250,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Autonomous robot navigation using computer vision</h1>
+            <h1 style="display: none">Autonomous Robot Navigation Using Computer Vision</h1>
             
               <p class="note note-info">
                 
-                  Last edited on: July 16, 2021 10:46 PM
+                  Last edited on: July 17, 2021 12:57 AM
                 
               </p>
             
@@ -282,7 +282,7 @@
 <p>Note that the <code>minArea</code> and <code>maxArea</code> of the blobs need to be specified for the detector to function properly. The area of the blobs may depend on the resolution of the image. Now that the locations of each blob are obtained, we need to work out the location and orientation of the robot based on the information we get from these key points.</p>
 <p><img src="detection.jpg" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Algorithmic-approach-to-self-localisation"><a href="#Algorithmic-approach-to-self-localisation" class="headerlink" title="Algorithmic approach to self-localisation"></a>Algorithmic approach to self-localisation</h2><p>In linear algebra, a rotation matrix is a matrix that is used to perform a rotation in Euclidean space.</p>
-<p>$$\boldsymbol{R} = \begin{bmatrix} \cos{\theta} &amp; -\sin{\theta} \ \sin{\theta} &amp; cos{\theta} \ \end{bmatrix}$$</p>
+<p>$$\boldsymbol{R} = \begin{bmatrix} \cos{\theta} &amp; -\sin{\theta} \\ \sin{\theta} &amp; cos{\theta} \\ \end{bmatrix}$$</p>
 <p>The approach of localising the robot is to paste a label on top of it with magenta squares at three corners of the paper. Once we retrieve the keypoints from the image, we can work out the edges and the diagonal of the label and with simple sorting and comparison, the centre position vector and top left corner of the label can be obtained and stored in variables. A 45-degree rotation matrix then allows the orientation of the robot to be computed by rotating the vector pointing from the centre position to the top left corner by 45 degrees.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Create a 45 degree rotation matrix</span><br>theta = np.radians(<span class="hljs-number">45</span>)<br>c, s = np.cos(theta), np.sin(theta)<br>R = np.array(((c,-s), (s, c)))<br><br><span class="hljs-comment"># Rotate the diagonal vector</span><br>dirn = R.dot(top_left - pos)<br></code></pre></td></tr></table></figure>
 
@@ -325,7 +325,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Projects/">Projects</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Vision/">Computer Vision</a>
                     
                   </div>
                 
@@ -358,7 +358,7 @@
                     
                       <a href="/2020/03/17/image-processing-visualization/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Visualization for image processing algorithms</span>
+                        <span class="hidden-mobile">Visualization for Image Processing Algorithms</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -367,7 +367,7 @@
                     
                     
                       <a href="/2020/01/25/smart-waste/">
-                        <span class="hidden-mobile">Waste collection and management using IoT and machine learning</span>
+                        <span class="hidden-mobile">Waste Collection and Management Using IoT and Machine Learning</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

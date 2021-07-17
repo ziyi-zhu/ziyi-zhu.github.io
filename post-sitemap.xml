@@ -9,16 +9,8 @@
 
 
     <url>
-        <loc>https://ziyizhu.me/2020/03/24/part-ib/</loc>
-        <lastmod>2021-07-16T22:54:06.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/2019/09/02/hdr-lf-capture/</loc>
-        <lastmod>2021-07-16T21:51:40.421Z</lastmod>
+        <loc>https://ziyizhu.me/2021/07/17/yield-curve/</loc>
+        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +18,7 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/03/24/virus-simulation/</loc>
-        <lastmod>2021-07-16T21:49:22.659Z</lastmod>
+        <lastmod>2021-07-16T23:58:22.692Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,7 +26,7 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/01/25/smart-waste/</loc>
-        <lastmod>2021-07-16T21:49:13.130Z</lastmod>
+        <lastmod>2021-07-16T23:57:36.619Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,7 +34,7 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/05/06/pokemon-generation/</loc>
-        <lastmod>2021-07-16T21:48:15.982Z</lastmod>
+        <lastmod>2021-07-16T23:57:27.245Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,7 +42,15 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/03/17/image-processing-visualization/</loc>
-        <lastmod>2021-07-16T21:48:02.507Z</lastmod>
+        <lastmod>2021-07-16T23:57:19.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/2019/09/02/hdr-lf-capture/</loc>
+        <lastmod>2021-07-16T23:57:13.044Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -58,7 +58,7 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/03/02/cv-robot-navigation/</loc>
-        <lastmod>2021-07-16T21:46:59.353Z</lastmod>
+        <lastmod>2021-07-16T23:57:06.821Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,7 +66,15 @@
 
     <url>
         <loc>https://ziyizhu.me/2020/03/30/ar-browser-game/</loc>
-        <lastmod>2021-07-16T21:43:21.256Z</lastmod>
+        <lastmod>2021-07-16T23:56:28.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/2020/03/24/part-ib/</loc>
+        <lastmod>2021-07-16T22:54:06.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

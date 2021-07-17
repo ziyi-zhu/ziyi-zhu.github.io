@@ -10,6 +10,15 @@
     
     
     <url>
+        <loc>https://ziyizhu.me/about/</loc>
+        <lastmod>2021-07-17T00:25:22.599Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://ziyizhu.me/tags/</loc>
         <lastmod>2021-07-16T21:09:08.984Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -21,15 +30,6 @@
     <url>
         <loc>https://ziyizhu.me/categories/</loc>
         <lastmod>2021-07-16T21:08:47.879Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://ziyizhu.me/about/</loc>
-        <lastmod>2021-07-16T20:57:10.992Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

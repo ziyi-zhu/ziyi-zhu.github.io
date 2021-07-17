@@ -18,7 +18,7 @@
   <meta name="author" content="Ziyi Zhu">
   <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
   
-  <title>Visualization for image processing algorithms - Creative Overdose</title>
+  <title>Visualization for Image Processing Algorithms - Creative Overdose</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Visualization for image processing algorithms">
+            <span class="h2" id="subtitle" title="Visualization for Image Processing Algorithms">
               
             </span>
 
@@ -250,11 +250,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Visualization for image processing algorithms</h1>
+            <h1 style="display: none">Visualization for Image Processing Algorithms</h1>
             
               <p class="note note-info">
                 
-                  Last edited on: July 16, 2021 10:48 PM
+                  Last edited on: July 17, 2021 12:57 AM
                 
               </p>
             
@@ -278,7 +278,7 @@
 <p>$$G_{\sigma}(x, y) = \frac{1}{2\pi\sigma^2} e^{-\frac{x^2+y^2}{2\sigma^2}}$$ </p>
 <p>$$S(x, y) = G_{\sigma}(x, y) * I(x, y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} G_{\sigma}(u, v)I(x-u, y-v)dudv$$</p>
 <p>The next step is to find the gradient of the smoothed image $S(x, y)$ at every pixel:</p>
-<p>$$\Delta S = \Delta (G_{\sigma} * I) = \begin{bmatrix} \frac{\partial (G_{\sigma} * I)}{\partial x} \ \frac{\partial (G_{\sigma} * I)}{\partial y} \end{bmatrix} = \begin{bmatrix} \frac{\partial G_{\sigma}}{\partial x} * I \ \frac{\partial G_{\sigma}}{\partial y} * I \end{bmatrix}$$</p>
+<p>$$\Delta S = \Delta (G_{\sigma} * I) = \begin{bmatrix} \frac{\partial (G_{\sigma} * I)}{\partial x} \\ \frac{\partial (G_{\sigma} * I)}{\partial y} \end{bmatrix} = \begin{bmatrix} \frac{\partial G_{\sigma}}{\partial x} * I \\ \frac{\partial G_{\sigma}}{\partial y} * I \end{bmatrix}$$</p>
 <p>The next stage of the edge detection algorithm is non-maximal suppression. Edge elements, or edgels, are placed at locations where $|\Delta S|$ is greater than local values of $|\Delta S|$ in the directions $\pm \Delta S$. This aims to ensure that all edgels are located at ridge-points of the surface $|\Delta S|$. Subsequently, the edgels are thresholded, so that only those with $|\Delta S|$ above a certain value are retained.</p>
 <p>An alternative approach to edge detection is to find zero-crossings of $\Delta^{2}G_{\sigma} * I$, where $\Delta^{2}G_{\sigma}$ is the Laplacian of $G_{\sigma}$.</p>
 <p><img src="gaussian.png" srcset="/img/loading.gif" lazyload></p>
@@ -297,8 +297,8 @@
 <p><img src="corner_detection.png" srcset="/img/loading.gif" lazyload></p>
 <p>A practical corner detection algorithm calculates change in intensity in direction $\mathbf{n}$ and smooths the result by convolution with a Gaussian kernel:</p>
 <p>$$I_{n} \equiv \Delta I(x, y) \cdot \mathbf{n} \equiv \begin{bmatrix} I_{x} &amp; I_{y} \end{bmatrix}^{T} \cdot \mathbf{n} \equiv \begin{bmatrix} \frac{\partial I}{\partial x} &amp; \frac{\partial I}{\partial y} \end{bmatrix}^{T} \cdot \mathbf{n}$$</p>
-<p>$$I_{n}^{2} = \frac{\mathbf{n}^{T} \Delta I \Delta I^{T} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}} = \frac{\mathbf{n}^{T} \begin{bmatrix} I_{x}^{2} &amp; I_{x}I_{y} \ I_{x}I_{y} &amp; I_{y}^{2} \end{bmatrix} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}}$$</p>
-<p>$$C_{n}(x, y) = G_{\sigma}(x, y) * I_{n}^{2} = \frac{\mathbf{n}^{T} \begin{bmatrix} \langle I_{x}^{2}\rangle &amp; \langle I_{x}I_{y}\rangle \ \langle I_{x}I_{y}\rangle &amp; \langle I_{y}^{2}\rangle \end{bmatrix} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}} \equiv \frac{\mathbf{n}^{T} A \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}}$$</p>
+<p>$$I_{n}^{2} = \frac{\mathbf{n}^{T} \Delta I \Delta I^{T} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}} = \frac{\mathbf{n}^{T} \begin{bmatrix} I_{x}^{2} &amp; I_{x}I_{y} \\ I_{x}I_{y} &amp; I_{y}^{2} \end{bmatrix} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}}$$</p>
+<p>$$C_{n}(x, y) = G_{\sigma}(x, y) * I_{n}^{2} = \frac{\mathbf{n}^{T} \begin{bmatrix} \langle I_{x}^{2}\rangle &amp; \langle I_{x}I_{y}\rangle \\ \langle I_{x}I_{y}\rangle &amp; \langle I_{y}^{2}\rangle \end{bmatrix} \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}} \equiv \frac{\mathbf{n}^{T} A \mathbf{n}}{\mathbf{n}^{T} \mathbf{n}}$$</p>
 <p>Elementary eigenvector theory shows that $\lambda_{1} \leq C_{n}(x, y) \leq \lambda_{2}$ where $\lambda_{1}$ and $\lambda_{2}$ are the eigenvalues of $A$. Therefore, image structure around each pixel can be classified by looking at the eigenvalues:</p>
 <ol>
 <li>No structure (smooth variation): $\lambda_{1} \approx \lambda_{2} \approx 0$</li>
@@ -315,17 +315,17 @@
 <h2 id="Kernels-used-for-image-processing-algorithms"><a href="#Kernels-used-for-image-processing-algorithms" class="headerlink" title="Kernels used for image processing algorithms"></a>Kernels used for image processing algorithms</h2><p>Image Processing Visuailizer features a collection of commonly used kernels for image processing and feature extraction. In practice, the kernels are convoluted across the image to produce the desired output.</p>
 <p><img src="algorithms.jpg" srcset="/img/loading.gif" lazyload></p>
 <h3 id="Box-blur"><a href="#Box-blur" class="headerlink" title="Box blur"></a>Box blur</h3><p>A box blur (also known as a box linear filter) is a spatial domain linear filter in which each pixel in the resulting image has a value equal to the average value of its neighbouring pixels in the input image. It is a form of low-pass (“blurring”) filter. </p>
-<p>$$\mathbf{G} = \frac{1}{9} \begin{bmatrix}1 &amp; 1 &amp; 1\1 &amp; 1 &amp; 1\1 &amp; 1 &amp; 1\end{bmatrix} * \mathbf{A}$$ </p>
+<p>$$\mathbf{G} = \frac{1}{9} \begin{bmatrix}1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1\end{bmatrix} * \mathbf{A}$$ </p>
 <p>Box blurs are frequently used to approximate a Gaussian blur. By the central limit theorem, repeated application of a box blur will approximate a Gaussian blur.</p>
 <h3 id="Gaussian-blur"><a href="#Gaussian-blur" class="headerlink" title="Gaussian blur"></a>Gaussian blur</h3><p>In image processing, a Gaussian blur (also known as Gaussian smoothing) is the result of blurring an image by a Gaussian function. Mathematically, applying a Gaussian blur to an image is the same as convolving the image with a Gaussian function. This is also known as a two-dimensional Weierstrass transform. </p>
 <p>$$G(x,y) = \frac{1}{2\pi\sigma^2} e^{-\frac{x^2+y^2}{2\sigma^2}}$$ </p>
 <p>Gaussian smoothing is also used as a pre-processing stage in computer vision algorithms in order to enhance image structures at different scales.</p>
 <h3 id="Sobel-operator"><a href="#Sobel-operator" class="headerlink" title="Sobel operator"></a>Sobel operator</h3><p>The operator uses two 3×3 kernels which are convolved with the original image to calculate approximations of the derivatives – one for horizontal changes, and one for vertical. </p>
-<p>$$\mathbf{G}_x = \begin{bmatrix}+1 &amp; 0 &amp; -1\+2 &amp; 0 &amp; -2\+1 &amp; 0 &amp; -1\end{bmatrix} * \mathbf{A}$$<br>$$\mathbf{G}_y = \begin{bmatrix}+1 &amp; +2 &amp; +1\0 &amp; 0 &amp; 0\-1 &amp; -2 &amp; -1\end{bmatrix} * \mathbf{A}$$</p>
+<p>$$\mathbf{G}_x = \begin{bmatrix}+1 &amp; 0 &amp; -1\\+2 &amp; 0 &amp; -2\\+1 &amp; 0 &amp; -1\end{bmatrix} * \mathbf{A}$$<br>$$\mathbf{G}_y = \begin{bmatrix}+1 &amp; +2 &amp; +1\\0 &amp; 0 &amp; 0\\-1 &amp; -2 &amp; -1\end{bmatrix} * \mathbf{A}$$</p>
 <p>The x-coordinate is defined here as increasing in the “right”-direction, and the y-coordinate is defined as increasing in the “down”-direction. At each point in the image, the resulting gradient approximations can be combined to give the gradient magnitude and direction, using: </p>
 <p>$$\mathbf{G} = \sqrt{\mathbf{G}_x^2 + \mathbf{G}_y^2}$$<br>$$\mathbf{\Theta} = \arctan{\frac{\mathbf{G}_y}{\mathbf{G}_x}}$$</p>
 <h3 id="Prewitt-operator"><a href="#Prewitt-operator" class="headerlink" title="Prewitt operator"></a>Prewitt operator</h3><p>The operator uses two 3×3 kernels which are convolved with the original image to calculate approximations of the derivatives – one for horizontal changes, and one for vertical. </p>
-<p>$$\mathbf{G}_x = \begin{bmatrix}+1 &amp; 0 &amp; -1\+1 &amp; 0 &amp; -1\+1 &amp; 0 &amp; -1\end{bmatrix} * \mathbf{A}$$<br>$$\mathbf{G}_y = \begin{bmatrix}+1 &amp; +1 &amp; +1\0 &amp; 0 &amp; 0\-1 &amp; -1 &amp; -1\end{bmatrix} * \mathbf{A}$$ </p>
+<p>$$\mathbf{G}_x = \begin{bmatrix}+1 &amp; 0 &amp; -1\\+1 &amp; 0 &amp; -1\\+1 &amp; 0 &amp; -1\end{bmatrix} * \mathbf{A}$$<br>$$\mathbf{G}_y = \begin{bmatrix}+1 &amp; +1 &amp; +1\\0 &amp; 0 &amp; 0\\-1 &amp; -1 &amp; -1\end{bmatrix} * \mathbf{A}$$ </p>
 <h3 id="Canny-edge-detector"><a href="#Canny-edge-detector" class="headerlink" title="Canny edge detector"></a>Canny edge detector</h3><p>The algorithm takes the output of a Sobel operator and categorizes the continuous gradient directions into a small set of discrete directions, and then moves a 3x3 filter over the output of the previous step (that is, the edge strength and gradient directions). At every pixel, it suppresses the edge strength of the centre pixel (by setting its value to 0) if its magnitude is not greater than the magnitude of the two neighbours in the gradient direction.</p>
 <h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>Code for this project can be found in <a target="_blank" rel="noopener" href="https://github.com/ziyi-zhu/image-processing-visualizer">GitHub repository</a>.</p>
 <h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>Install Express in the <code>root</code> directory and save it in the dependencies list. For example:</p>
@@ -343,7 +343,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Projects/">Projects</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Vision/">Computer Vision</a>
                     
                   </div>
                 
@@ -387,7 +387,7 @@
                     
                     
                       <a href="/2020/03/02/cv-robot-navigation/">
-                        <span class="hidden-mobile">Autonomous robot navigation using computer vision</span>
+                        <span class="hidden-mobile">Autonomous Robot Navigation Using Computer Vision</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

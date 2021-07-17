@@ -18,7 +18,7 @@
   <meta name="author" content="Ziyi Zhu">
   <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
   
-  <title>Optical Bouncer - an augmented reality game made for browser - Creative Overdose</title>
+  <title>Optical Bouncer - AR Game Made for Browser - Creative Overdose</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Optical Bouncer - an augmented reality game made for browser">
+            <span class="h2" id="subtitle" title="Optical Bouncer - AR Game Made for Browser">
               
             </span>
 
@@ -250,11 +250,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Optical Bouncer - an augmented reality game made for browser</h1>
+            <h1 style="display: none">Optical Bouncer - AR Game Made for Browser</h1>
             
               <p class="note note-info">
                 
-                  Last edited on: July 16, 2021 10:43 PM
+                  Last edited on: July 17, 2021 12:56 AM
                 
               </p>
             
@@ -275,7 +275,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Projects/">Projects</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Vision/">Computer Vision</a>
                     
                   </div>
                 
@@ -310,7 +310,7 @@
                     
                       <a href="/2020/05/06/pokemon-generation/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Generating Pokemon with deep convolutional Generative Adversarial Network</span>
+                        <span class="hidden-mobile">Generating Pokemon with Deep Convolutional GANs</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -319,7 +319,7 @@
                     
                     
                       <a href="/2020/03/24/virus-simulation/">
-                        <span class="hidden-mobile">Virus simulation with quadtree implementation in Javascript</span>
+                        <span class="hidden-mobile">Virus Simulation with Quadtree Implementation in Javascript</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -519,45 +519,6 @@
 
 
 
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
-
-  
 
 
 
