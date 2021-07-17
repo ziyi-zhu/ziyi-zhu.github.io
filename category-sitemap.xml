@@ -9,8 +9,15 @@
 
 
     <url>
+        <loc>https://ziyizhu.me/categories/Computer-Vision/</loc>
+        <lastmod>2021-07-17T12:06:33.967Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://ziyizhu.me/categories/Quantitative-Finance/</loc>
-        <lastmod>2021-07-17T00:05:29.067Z</lastmod>
+        <lastmod>2021-07-17T12:04:28.039Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -25,13 +32,6 @@
     <url>
         <loc>https://ziyizhu.me/categories/Machine-Learning/</loc>
         <lastmod>2021-07-16T23:57:36.619Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/categories/Computer-Vision/</loc>
-        <lastmod>2021-07-16T23:57:19.196Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
