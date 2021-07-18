@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="A yield curve is a line that plots yields (interest rates) of bonds having equal credit quality but differing maturity dates. In this article, we survey a selection of the interpolation algorithms tha">
+  <meta name="description" content="The article explores the use of geometric Brownian Motion (GBM) to simulate the price of stocks. The concept naturally extends to the Black-Scholes-Merton (BSM) model which is widely used to estimate ">
   <meta name="author" content="Ziyi Zhu">
   <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
   
-  <title>Yield Curve Construction and Analysis - Creative Overdose</title>
+  <title>Black Scholes Model with Stock Simulation - Creative Overdose</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Yield Curve Construction and Analysis">
+            <span class="h2" id="subtitle" title="Black Scholes Model with Stock Simulation">
               
             </span>
 
@@ -190,8 +190,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-17 01:03" pubdate>
-        July 17, 2021 1:03 AM
+      <time datetime="2021-07-17 13:17" pubdate>
+        July 17, 2021 1:17 PM
       </time>
     </span>
   
@@ -202,7 +202,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      693 words
+      938 words
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      18
        minutes
     </span>
   
@@ -250,48 +250,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Yield Curve Construction and Analysis</h1>
+            <h1 style="display: none">Black Scholes Model with Stock Simulation</h1>
             
               <p class="note note-info">
                 
-                  Last edited on: July 17, 2021 1:04 PM
+                  Last edited on: July 18, 2021 1:04 PM
                 
               </p>
             
             <div class="markdown-body">
-              <p>A yield curve is a line that plots yields (interest rates) of bonds having equal credit quality but differing maturity dates. In this article, we survey a selection of the interpolation algorithms that are in use in financial markets for construction of curves such as forward curves and yield curves. The term structure of interest rates is defined as the relationship between the yield-to-maturity on a zero coupon bond and bond’s maturity.</p>
+              <p>The article explores the use of geometric Brownian Motion (GBM) to simulate the price of stocks. The concept naturally extends to the Black-Scholes-Merton (BSM) model which is widely used to estimate the pricing variation of financial instruments such as an options contract. Monte Carlo simulation (MCS) is then used to estimate the stock pricing and validate the model predictions.</p>
 <span id="more"></span>
 
-<h2 id="Yield-curve-mathematics"><a href="#Yield-curve-mathematics" class="headerlink" title="Yield curve mathematics"></a>Yield curve mathematics</h2><p>For a discount or zero coupon bond, the price of an instrument now at time $0$ which pays $1$ unit of currency at time $t$ is denoted $Z(0, t)$. The inverse of this amount is denoted $C(0, t)$ and called the capitalization factor. Note that $Z(0, t)$ is decreasing in $t$ for no arbitrage. Let the time $0$ continuous compounded risk free rate for maturity $t$ be denoted $r(t)$.</p>
-<p>$$C(0, t) = \exp(r(t)t)$$</p>
-<p>$$Z(0,t) = \exp(-r(t)t)$$</p>
-<p>$$r(t) = - \frac{1}{t} \ln Z(0, t)$$</p>
-<p>In normal markets, yield curves are upwardly sloping, with longer term interest rates being higher than short term. A yield curve which is downward sloping is called inverted. A yield curve with one or more turning points is called mixed. In a stable market with reasonably liquidity, one can observe a consistent mixed shape over long periods of time.</p>
-<blockquote>
-<p>While normal curves point to economic expansion, downward sloping (inverted) curves point to economic recession.</p>
-</blockquote>
-<h2 id="Interpolation-and-bootstrap"><a href="#Interpolation-and-bootstrap" class="headerlink" title="Interpolation and bootstrap"></a>Interpolation and bootstrap</h2><p>In finance, bootstrapping is a method for constructing a (zero-coupon) fixed-income yield curve from the prices of a set of coupon-bearing products, e.g. bonds and swaps. So far we assumed that bonds trade with sufficient liquidity and as a continuum i.e. a zero coupon bond exists for every redemption date $t$. In fact, such bonds rarely trade in the market, and we need to impute such a continuum via bootstrapping.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Use quadratic interpolation for curve fitting</span><br>r = interp1d(curve_dates, zero_rates, kind=<span class="hljs-string">&#x27;quadratic&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="Geometric-Brownian-Motion"><a href="#Geometric-Brownian-Motion" class="headerlink" title="Geometric Brownian Motion"></a>Geometric Brownian Motion</h2><h3 id="Stochastic-process"><a href="#Stochastic-process" class="headerlink" title="Stochastic process"></a>Stochastic process</h3><p>A geometric Brownian motion (GBM) is a continuous-time stochastic process in which the logarithm of the randomly varying quantity follows a Brownian motion (also called a Wiener process) with drift. The stock price $S_t$ is said to follow a GBM if it satisfies the following stochastic differential equation (SDE):</p>
+<p>$$dS_t = \mu S_t dt + \sigma S_t dW_t$$</p>
+<p>$W_t$ is a Wiener process or Brownian motion, and the expected return $\mu$ and the standard deviation of returns (volatility) $\sigma$ are constants. Note that $W_t$ is normally distributed with mean $0$ and variance $t$. For an arbitrary initial value $S_0$ the above SDE has the analytic solution:</p>
+<p>$$S_t = S_0 \exp \left[ \left( \mu - \frac{\sigma^2}{2} \right) t + \sigma W_t \right] = \exp \left[ \ln S_0 + \left( \mu - \frac{\sigma^2}{2} \right) t + \sigma W_t \right]$$</p>
+<p>The GBM is technically a Markov process. The stock price hence follows a random walk and is consistent with the weak form of the efficient market hypothesis (EMH).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Calculate stock price at time t</span><br>S = S0 * np.exp(r * t - <span class="hljs-number">1</span>/<span class="hljs-number">2</span> * sigma**<span class="hljs-number">2</span> * t + sigma * np.random.randn() * np.sqrt(t))<br></code></pre></td></tr></table></figure>
 
-<p><img src="bootstrap.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Forward-rates"><a href="#Forward-rates" class="headerlink" title="Forward rates"></a>Forward rates</h2><p>The forward discount factor for the period from $t_1$ to $t_2$ at time $0$ satisfies the no arbitrage equation:</p>
-<p>$$Z(0, t) Z(0; t_1, t_2) = Z(0, t_2)$$</p>
-<p>The forward rate governing the period from $t_1$ to $t_2$, denoted $f(0; t_1, t_2)$, satisfies:</p>
-<p>$$\exp(-f(0; t_1, t_2)(t_2 - t_1)) = Z(0; t_1, t_2)$$</p>
-<p>Note that forward rates are positive and we have:</p>
-<p>$$f(0; t_1, t_2) = -\frac{\ln Z(0, t_2) - \ln Z(0, t_1)}{t_2 - t_1} = - \frac{r_2 t_2 - r_1 t_1}{t_2 - t_1}$$</p>
-<h2 id="Zero-curve-to-forward-curve-conversion"><a href="#Zero-curve-to-forward-curve-conversion" class="headerlink" title="Zero curve to forward curve conversion"></a>Zero curve to forward curve conversion</h2><p>Let instantaneous forward rate for a tenor of $t$ be denoted $f(t)$, we have:</p>
-<p>$$f(t) = \frac{d}{dt} r(t)t = r(t) + r^{\prime}(t)t$$</p>
-<p>Hence, the forward rates will lie above the yield curve when the yield curve is normal, and below the yield curve when it is inverted.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Use backward difference for numerical differentiation</span><br>f = <span class="hljs-keyword">lambda</span> t: r(t) + np.diff(r(t), prepend=r(t)[<span class="hljs-number">0</span>]) * t / dt<br></code></pre></td></tr></table></figure>
+<p><img src="simulation.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Probability-density-function"><a href="#Probability-density-function" class="headerlink" title="Probability density function"></a>Probability density function</h3><p>Since the exponent of $S_t$ is normally distributed, we can use the change of variable formula to calculate the probability distribution of $S_t$. Let $Z \sim \mathcal{N}(m, v)$ where the probability density function of $z$ is given by:</p>
+<p>$$f_Z(z) = \frac{1}{\sqrt{2\pi v}} \exp \left[ -\frac{(z-m)^2}{2 v} \right]$$</p>
+<p>We then calculate the probability density function of $x = g(z) = e^z$ using:</p>
+<p>$$f_X(x) = f_Z(z = g^{-1}(x)) \left| \frac{dz}{dx} \right| = \frac{1}{x \sqrt{2\pi v}} \exp \left[ -\frac{(\ln x -m)^2}{2 v} \right]$$</p>
+<p>Note that for $S_t$ the exponent is normally distributed with mean $\ln S_0 + \left( \mu - \frac{\sigma^2}{2} \right) t$ and variance $\sigma^2 t$. Hence, $S_t$ follows a log-normal distribution:</p>
+<p>$$S_t \sim \mathcal{LN} \left[\ln S_0 + \left( \mu - \frac{\sigma^2}{2} \right) t, \sigma^2 t\right] $$</p>
+<p><img src="probability.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Maximum-likelihood-estimate"><a href="#Maximum-likelihood-estimate" class="headerlink" title="Maximum likelihood estimate"></a>Maximum likelihood estimate</h3><p>In order to estimate the percentage drift $\mu$ and percentage volatility $\sigma$, we use the previously calculated probability density function for log-normal distribution to obtain an expression for the log-likelihood:</p>
+<p>$$L = - \frac{n}{2} \ln v - \frac{n}{2} \ln 2\pi - \sum_{i=1}^n \ln x_i - \sum_{i=1}^n -\frac{(\ln x_i -m)^2}{2 v}$$</p>
+<p>Differentiate with respect to the model parameters to find the maximum likelihood (ML) estimate:</p>
+<p>$$m = \frac{\sum_{i=1}^n \ln x_i}{n}, \quad v = \frac{\sum_{i=1}^n (\ln x_i - m)^2}{n}$$</p>
+<p>We can use the GBM to model real financial data by looking at the General Electric stock daily data over 20 business days. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">             High    Low   Open  Close      Volume  Adj Close<br>Date                                                         <br>2021-06-01  14.34  14.10  14.23  14.15  50276900.0  14.139239<br>2021-06-02  14.18  14.01  14.18  14.09  39936800.0  14.079286<br>2021-06-03  14.37  13.94  13.99  14.09  63163800.0  14.079286<br>2021-06-04  14.20  13.86  14.16  13.96  64071200.0  13.949385<br>2021-06-07  14.07  13.86  14.00  13.91  37349100.0  13.899423<br></code></pre></td></tr></table></figure>
 
-<h2 id="Forward-curve-to-zero-curve-conversion"><a href="#Forward-curve-to-zero-curve-conversion" class="headerlink" title="Forward curve to zero curve conversion"></a>Forward curve to zero curve conversion</h2><p>Given the forward rate function, we can find the risk free function by integrating:</p>
-<p>$$r(t)t = \int_{0}^{t} f(s) ds = r_{i-1}t_{i-1} + \int_{t_{i-1}}^{t} f(s)ds, \quad t \in [t_{i-1}, t_i]$$</p>
-<p>Note that the average of the instantaneous forward rate over any of our intervals $[t_{i-1}, t_i]$ is equal to the discrete forward rate for that interval.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Use dynamic programming for numerical integration</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(t)):<br>	r[i] = (r[i-<span class="hljs-number">1</span>] * t[i-<span class="hljs-number">1</span>] + np.trapz([f[i-<span class="hljs-number">1</span>], f[i]], [t[i-<span class="hljs-number">1</span>], t[i]])) / t[i]<br></code></pre></td></tr></table></figure>
+<p>By calculating the mean and variance of the log returns, we can obtain an estimate of the risk free interest rate and volatility.</p>
+<p>$$\ln \frac{S_t}{S_0} = \left( \mu - \frac{\sigma^2}{2} \right) t + \sigma W_t \sim \mathcal{N} \left[ \left( \mu - \frac{\sigma^2}{2} \right) t, \sigma^2 t \right]$$</p>
+<p><img src="estimate.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Black-Scholes-Model"><a href="#Black-Scholes-Model" class="headerlink" title="Black Scholes Model"></a>Black Scholes Model</h2><h3 id="The-Black-Scholes-Formula"><a href="#The-Black-Scholes-Formula" class="headerlink" title="The Black-Scholes Formula"></a>The Black-Scholes Formula</h3><p>The Black-Scholes call option formula is calculated by multiplying the stock price $S_t$ by the cumulative standard normal distribution. Thereafter, the net present value (NPV) of the strike price $K$ with risk-free interest rate $r$ and time to maturity $t$ is multiplied by the cumulative standard normal distribution and subtracted from the resulting value. The call option price $C$ is  therefore given by:</p>
+<p>$$C = S_t N(d_1) - K e^{-rt} N(d_2)$$</p>
+<p>$N(d_2)$ is the risk-adjusted probability that the option will be exercised. $N(d_1)$ is the factor by which the present value of contingent receipt of the stock exceeds the current stock price.</p>
+<p>$$d_1 = \frac{\ln \frac{S_t}{K} + \left( r + \frac{\sigma^2}{2} \right)t}{\sigma \sqrt{t}}, \quad d_2 = d_1 - \sigma \sqrt{t}$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Calculate the value of a call option using the Black-Scholes formula</span><br>d1 = (<span class="hljs-number">1</span> / sigma * np.sqrt(t)) * (np.log(S0/K) + (r + <span class="hljs-number">1</span>/<span class="hljs-number">2</span> * sigma**<span class="hljs-number">2</span> * t))<br>d2 = d1 - sigma * np.sqrt(t)<br>C = S0 * (norm.cdf(d1)) - np.exp(-r * t) * K * norm.cdf(d2)<br></code></pre></td></tr></table></figure>
 
-<h2 id="Bank-of-England-UK-yield-curve-data"><a href="#Bank-of-England-UK-yield-curve-data" class="headerlink" title="Bank of England UK yield curve data"></a>Bank of England UK yield curve data</h2><p>The government liability curve is based on yields on UK government bonds (gilts) and yields in the general collateral repo market. The nominal yield curves are derived from UK gilt prices and General Collateral (GC) repo rates. The real yield curves are derived from UK index-linked bond prices. Using the Fisher relationship, we are also able to estimate a term structure of inflation expectations for the United Kingdom. </p>
-<p><img src="glc.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="options.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Monte-Carlo-for-vanilla-option"><a href="#Monte-Carlo-for-vanilla-option" class="headerlink" title="Monte Carlo for vanilla option"></a>Monte Carlo for vanilla option</h3><p>A vanilla option is a financial instrument that gives the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price within a given timeframe. We can compare the average payoff of an option simulated with GBM with its price calculated using the Black-Scholes model.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Monte Carlo simulation</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(NUM_SIMS):<br>    stock_price = S0 * np.exp(r * t - <span class="hljs-number">1</span>/<span class="hljs-number">2</span> * sigma**<span class="hljs-number">2</span> * t + sigma * np.random.randn() * np.sqrt(t))<br>    payoff[i] = (stock_price - K) * np.exp(-r * t) <span class="hljs-keyword">if</span> stock_price &gt; K <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -315,7 +320,11 @@
                     
                       <a class="hover-with-bg" href="/tags/Capital-market/">Capital market</a>
                     
-                      <a class="hover-with-bg" href="/tags/Bond/">Bond</a>
+                      <a class="hover-with-bg" href="/tags/Stock/">Stock</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Option/">Option</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Modelling/">Modelling</a>
                     
                   </div>
                 
@@ -332,18 +341,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/17/black-scholes/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Black Scholes Model with Stock Simulation</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/16/part-iia/">
-                        <span class="hidden-mobile">Part IIA Engineering Tripos Revision Notes</span>
+                      <a href="/2021/07/17/yield-curve/">
+                        <span class="hidden-mobile">Yield Curve Construction and Analysis</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -365,8 +368,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://ziyizhu.me/2021/07/17/yield-curve/';
-          this.page.identifier = '/2021/07/17/yield-curve/';
+          this.page.url = 'https://ziyizhu.me/2021/07/17/black-scholes/';
+          this.page.identifier = '/2021/07/17/black-scholes/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
