@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Having gone through projects available for Hack Cambridge 101, we are inspired by the Smart Waste challenge put forwarded by Reply. This is because current waste collection system is rather inefficien">
+  <meta name="description" content="This is the reading notes on Introduction to Modern Time Series Analysis by by G. Kirchgässner and Jürgen Wolters. This is done as a preparatory work for the project on detecting causal structure in t">
   <meta name="author" content="Ziyi Zhu">
   <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
   
-  <title>Waste Collection and Management Using IoT and Machine Learning - Creative Overdose</title>
+  <title>Notes on Introduction to Modern Time Series Analysis - Creative Overdose</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Waste Collection and Management Using IoT and Machine Learning">
+            <span class="h2" id="subtitle" title="Notes on Introduction to Modern Time Series Analysis">
               
             </span>
 
@@ -190,8 +190,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-01-25 15:03" pubdate>
-        January 25, 2020 3:03 PM
+      <time datetime="2021-07-19 11:05" pubdate>
+        July 19, 2021 11:05 AM
       </time>
     </span>
   
@@ -202,7 +202,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      510 words
+      170 words
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      3
        minutes
     </span>
   
@@ -250,51 +250,25 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Waste Collection and Management Using IoT and Machine Learning</h1>
+            <h1 style="display: none">Notes on Introduction to Modern Time Series Analysis</h1>
             
               <p class="note note-info">
                 
-                  Last edited on: July 17, 2021 12:57 AM
+                  Last edited on: July 19, 2021 3:55 PM
                 
               </p>
             
             <div class="markdown-body">
-              <p>Having gone through projects available for Hack Cambridge 101, we are inspired by the Smart Waste challenge put forwarded by Reply. This is because current waste collection system is rather inefficient and a lot of resources has been wasted during the recycling process. Therefore, this project aims to address such urgent need for improvement in this sector.</p>
+              <p>This is the reading notes on Introduction to Modern Time Series Analysis by by G. Kirchgässner and Jürgen Wolters. This is done as a preparatory work for the project on detecting causal structure in time series in Part IIB of the Engineering Tripos at the University of Cambridge.</p>
 <span id="more"></span>
 
-<p><img src="bin.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>Our system has a number of key functions:</p>
-<ul>
-<li>Classifies incoming waste into categories (Recyclable/Organic)</li>
-<li>Detects whether the bin is full</li>
-<li>Optimizes waste collection routes</li>
-</ul>
-<h2 id="Hardware-design"><a href="#Hardware-design" class="headerlink" title="Hardware design"></a>Hardware design</h2><p>For the hardware, we started by building a bin using a cardboard box. Then we attached an Arduino board to the box which acts as the main control system. A servo motor, an ultrasonic sensor, a camera and a LED were also installed.</p>
-<h3 id="Arduino-wiring"><a href="#Arduino-wiring" class="headerlink" title="Arduino wiring"></a>Arduino wiring</h3><p><img src="circuit.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Pinout"><a href="#Pinout" class="headerlink" title="Pinout"></a>Pinout</h3><p>The pintout for Arduino can ba changed in <code>arduino/Bin.ino</code>:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> trigPin = <span class="hljs-number">9</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> echoPin = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ledPin = <span class="hljs-number">13</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> buttonPin = A2;<br></code></pre></td></tr></table></figure>
-
-<h3 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</h3><p>Spy camera is used for Computer Vision.</p>
-<p><img src="camera.jpg" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Sensor"><a href="#Sensor" class="headerlink" title="Sensor"></a>Sensor</h3><p>An ultrasonic sensor is used to detect the capacity of the bin.</p>
-<p><img src="sensor.jpg" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Software-control-and-image-recognition"><a href="#Software-control-and-image-recognition" class="headerlink" title="Software control and image recognition"></a>Software control and image recognition</h2><p>In terms of the software, Arduino code is used to control all components. A Keras model detects whether the object is recyclable. A python API was also built to calculate the optimized route and plot out the route on Google map.</p>
-<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>Install Keras from PyPI:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo pip install Keras<br></code></pre></td></tr></table></figure>
-
-<p>Install TensorFlow and OpenCV from GitHub source.</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>Connect the machine to Arduino and run <code>python/predict.py</code>.</p>
-<h3 id="Recycling-with-computer-vision"><a href="#Recycling-with-computer-vision" class="headerlink" title="Recycling with computer vision"></a>Recycling with computer vision</h3><p>Recyclable wastes will be dropped inside the bin.</p>
-<p><img src="bag.gif" srcset="/img/loading.gif" lazyload><br><img src="can.gif" srcset="/img/loading.gif" lazyload></p>
-<p>Non-recyclable wastes will be dropped outside the bin.</p>
-<p><img src="banana.gif" srcset="/img/loading.gif" lazyload><br><img src="orange.gif" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Bin-capacity-detection"><a href="#Bin-capacity-detection" class="headerlink" title="Bin capacity detection"></a>Bin capacity detection</h3><p>If the bin is full, the green LED will light up.</p>
-<p><img src="full.gif" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Route-planning-with-OptimoRoute-and-Google-Map-Services"><a href="#Route-planning-with-OptimoRoute-and-Google-Map-Services" class="headerlink" title="Route planning with OptimoRoute and Google Map Services"></a>Route planning with OptimoRoute and Google Map Services</h3><p>When the bin is full, its address will be uploaded and order for waste pick up will be submitted to the OptimoRoute website. The best route can be obtained from API and plotted using Google Map.</p>
-<p><img src="route.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="Lessons-learned"><a href="#Lessons-learned" class="headerlink" title="Lessons learned"></a>Lessons learned</h2><p>The biggest challenge we met was due to the poor quality of the camera. We initially trained the ML model using high-quality photo datasets from Imagenet. However, this didn’t work well initially as the photos collected using the spy camera were of low quality, contrast and saturation. We recognized the problem and manually collected another dataset using the spy camera. In the end, the accuracy reached around 90%. Higher accuracy can be achieved using a better camera.</p>
-<h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next"></a>What’s next</h2><p>The core of the project is the ML model. We only had time to collect around 100 photos using the spy camera, if we had more time we could have collected more photos so that we have a larger training set. We expect this to improve its classification accuracy. The concept and the technology developed can be implemented on a large scale in urban regions, where we envision IoT enabled bins to be used in parks, public areas and homes. These devices will enable more efficient waste collection methods to be used by the council and are expected to greatly reduce the resources needed to collect public wastes. </p>
-
+<h2 id="Univariate-Stationary-Processes"><a href="#Univariate-Stationary-Processes" class="headerlink" title="Univariate Stationary Processes"></a>Univariate Stationary Processes</h2><h3 id="Autoregressive-Processes"><a href="#Autoregressive-Processes" class="headerlink" title="Autoregressive Processes"></a>Autoregressive Processes</h3><p>A first order autoregressive process, an $AR(1)$ process, can be written as an inhomogeneous stochastic first order difference equation:</p>
+<p>$$x_t = \delta + \alpha x_{t-1} + u_t$$</p>
+<p>The inhomogeneous part $\delta + u_t$ consists of a constant term $\delta$ and a pure random process $u_t$. We can express the relation by using the lag operator defined as $\text{L} x_t = x_{t-1}$:</p>
+<p>$$(1 - \alpha \text{L})x_t = \delta + u_t$$</p>
+<p>If we solve for $x_t$ we get he Wold representation with $\phi_j = \alpha^j$ and $| \alpha | &lt; 1$:</p>
+<p>$$x_t = \frac{\delta}{1 - \alpha} + \sum_{j=0}^{\infty} \phi_j u_{t-j}$$</p>
+<h3 id="Moving-Average-Processes"><a href="#Moving-Average-Processes" class="headerlink" title="Moving Average Processes"></a>Moving Average Processes</h3><h3 id="Mixed-Processes"><a href="#Mixed-Processes" class="headerlink" title="Mixed Processes"></a>Mixed Processes</h3><h3 id="Forecasting"><a href="#Forecasting" class="headerlink" title="Forecasting"></a>Forecasting</h3><h2 id="Granger-Causality"><a href="#Granger-Causality" class="headerlink" title="Granger Causality"></a>Granger Causality</h2><h3 id="The-Definition-of-Granger-Causality"><a href="#The-Definition-of-Granger-Causality" class="headerlink" title="The Definition of Granger Causality"></a>The Definition of Granger Causality</h3><h3 id="Characterisations-of-Causal-Relations-in-Bivariate-Models"><a href="#Characterisations-of-Causal-Relations-in-Bivariate-Models" class="headerlink" title="Characterisations of Causal Relations in Bivariate Models"></a>Characterisations of Causal Relations in Bivariate Models</h3><h3 id="Causality-Tests"><a href="#Causality-Tests" class="headerlink" title="Causality Tests"></a>Causality Tests</h3>
             </div>
             <hr>
             <div>
@@ -303,7 +277,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Machine-Learning/">Machine Learning</a>
+                      <a class="hover-with-bg" href="/categories/Notes/">Notes</a>
                     
                   </div>
                 
@@ -311,11 +285,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/IoT/">IoT</a>
+                      <a class="hover-with-bg" href="/tags/Cambridge/">Cambridge</a>
                     
-                      <a class="hover-with-bg" href="/tags/TensorFlow/">TensorFlow</a>
+                      <a class="hover-with-bg" href="/tags/Engineering/">Engineering</a>
                     
-                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
+                      <a class="hover-with-bg" href="/tags/Information/">Information</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Time-series/">Time series</a>
                     
                   </div>
                 
@@ -332,18 +308,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/02/cv-robot-navigation/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Autonomous Robot Navigation Using Computer Vision</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/09/02/hdr-lf-capture/">
-                        <span class="hidden-mobile">Hardware and Software for Capturing HDR Light Fields</span>
+                      <a href="/2021/07/17/black-scholes/">
+                        <span class="hidden-mobile">Black Scholes Model with Stock Simulation</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -365,8 +335,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://ziyizhu.me/2020/01/25/smart-waste/';
-          this.page.identifier = '/2020/01/25/smart-waste/';
+          this.page.url = 'https://ziyizhu.me/2021/07/19/time-series/';
+          this.page.identifier = '/2021/07/19/time-series/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
@@ -543,6 +513,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
 
 
 

@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>https://ziyizhu.me/2021/07/19/time-series/</loc>
+        <lastmod>2021-07-19T14:55:40.716Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/2021/07/17/yield-curve/</loc>
+        <lastmod>2021-07-19T12:58:10.324Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ziyizhu.me/2021/07/17/black-scholes/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <lastmod>2021-07-19T10:56:15.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -19,14 +35,6 @@
     <url>
         <loc>https://ziyizhu.me/2020/03/17/image-processing-visualization/</loc>
         <lastmod>2021-07-17T12:06:33.967Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/2021/07/17/yield-curve/</loc>
-        <lastmod>2021-07-17T12:04:28.039Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

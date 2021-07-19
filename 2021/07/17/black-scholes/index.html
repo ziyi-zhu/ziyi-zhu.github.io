@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" target="_blank" rel="noopener" href="https://zhuziyi.wixsite.com/portfolio">
+              <a class="nav-link" href="/portfolio/">
                 <i class="iconfont icon-brush"></i>
                 Portfolio
               </a>
@@ -202,7 +202,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      938 words
+      952 words
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      19
        minutes
     </span>
   
@@ -254,7 +254,7 @@
             
               <p class="note note-info">
                 
-                  Last edited on: July 18, 2021 1:04 PM
+                  Last edited on: July 19, 2021 11:56 AM
                 
               </p>
             
@@ -294,7 +294,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Calculate the value of a call option using the Black-Scholes formula</span><br>d1 = (<span class="hljs-number">1</span> / sigma * np.sqrt(t)) * (np.log(S0/K) + (r + <span class="hljs-number">1</span>/<span class="hljs-number">2</span> * sigma**<span class="hljs-number">2</span> * t))<br>d2 = d1 - sigma * np.sqrt(t)<br>C = S0 * (norm.cdf(d1)) - np.exp(-r * t) * K * norm.cdf(d2)<br></code></pre></td></tr></table></figure>
 
 <p><img src="options.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Monte-Carlo-for-vanilla-option"><a href="#Monte-Carlo-for-vanilla-option" class="headerlink" title="Monte Carlo for vanilla option"></a>Monte Carlo for vanilla option</h3><p>A vanilla option is a financial instrument that gives the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price within a given timeframe. We can compare the average payoff of an option simulated with GBM with its price calculated using the Black-Scholes model.</p>
+<h3 id="Monte-Carlo-for-vanilla-option"><a href="#Monte-Carlo-for-vanilla-option" class="headerlink" title="Monte Carlo for vanilla option"></a>Monte Carlo for vanilla option</h3><p>Options are financial instruments that give the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price within a given timeframe. A vanilla option is a call option or put option that has no special or unusual features. We can compare the average payoff of an option simulated with GBM with its price calculated using the Black-Scholes model.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Monte Carlo simulation</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(NUM_SIMS):<br>    stock_price = S0 * np.exp(r * t - <span class="hljs-number">1</span>/<span class="hljs-number">2</span> * sigma**<span class="hljs-number">2</span> * t + sigma * np.random.randn() * np.sqrt(t))<br>    payoff[i] = (stock_price - K) * np.exp(-r * t) <span class="hljs-keyword">if</span> stock_price &gt; K <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
 
@@ -340,6 +340,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/07/19/time-series/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Notes on Introduction to Modern Time Series Analysis</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

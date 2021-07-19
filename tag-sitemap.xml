@@ -3,50 +3,78 @@
 
 
     <url>
-        <loc>https://ziyizhu.me/tags/Modelling/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <loc>https://ziyizhu.me/tags/Time-series/</loc>
+        <lastmod>2021-07-19T14:55:40.716Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ziyizhu.me/tags/Option/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <loc>https://ziyizhu.me/tags/Information/</loc>
+        <lastmod>2021-07-19T14:55:40.716Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ziyizhu.me/tags/Stock/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <loc>https://ziyizhu.me/tags/Engineering/</loc>
+        <lastmod>2021-07-19T14:55:40.716Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Cambridge/</loc>
+        <lastmod>2021-07-19T14:55:40.716Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Bond/</loc>
+        <lastmod>2021-07-19T12:58:10.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ziyizhu.me/tags/Capital-market/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <lastmod>2021-07-19T12:58:10.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ziyizhu.me/tags/Finance/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <lastmod>2021-07-19T12:58:10.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ziyizhu.me/tags/Quant/</loc>
-        <lastmod>2021-07-18T12:04:23.827Z</lastmod>
+        <lastmod>2021-07-19T12:58:10.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ziyizhu.me/tags/Computer-graphics/</loc>
-        <lastmod>2021-07-17T12:06:33.967Z</lastmod>
+        <loc>https://ziyizhu.me/tags/Modelling/</loc>
+        <lastmod>2021-07-19T10:56:15.244Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Option/</loc>
+        <lastmod>2021-07-19T10:56:15.244Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ziyizhu.me/tags/Stock/</loc>
+        <lastmod>2021-07-19T10:56:15.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -59,7 +87,7 @@
     </url>
 
     <url>
-        <loc>https://ziyizhu.me/tags/Computer-vision/</loc>
+        <loc>https://ziyizhu.me/tags/Computer-graphics/</loc>
         <lastmod>2021-07-17T12:06:33.967Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -80,8 +108,8 @@
     </url>
 
     <url>
-        <loc>https://ziyizhu.me/tags/Bond/</loc>
-        <lastmod>2021-07-17T12:04:28.039Z</lastmod>
+        <loc>https://ziyizhu.me/tags/Computer-vision/</loc>
+        <lastmod>2021-07-17T12:06:33.967Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -165,27 +193,6 @@
 
     <url>
         <loc>https://ziyizhu.me/tags/Computer/</loc>
-        <lastmod>2021-07-16T22:54:06.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Information/</loc>
-        <lastmod>2021-07-16T22:54:06.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Engineering/</loc>
-        <lastmod>2021-07-16T22:54:06.019Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ziyizhu.me/tags/Cambridge/</loc>
         <lastmod>2021-07-16T22:54:06.019Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
