@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-180x180.png">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="This blog post summarizes the guidelines and best practices for writing high-quality code from the book Clean Code by Robert C. Martin. Download the PDF version of the book here.">
+  <meta name="author" content="Ziyi Zhu">
+  <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
+  
+  <title>A Short Summary on Clean Code - Creative Overdose</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"ziyizhu.me","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Creative Overdose</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://zhuziyi.wixsite.com/portfolio/">
+                <i class="iconfont icon-brush"></i>
+                Portfolio
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="A Short Summary on Clean Code">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ziyi Zhu
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-12 15:46" pubdate>
+        October 12, 2021 3:46 PM
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32
+       minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> views
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">A Short Summary on Clean Code</h1>
+            
+              <p class="note note-info">
+                
+                  Last edited on: October 13, 2021 12:15 AM
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>This blog post summarizes the guidelines and best practices for writing high-quality code from the book Clean Code by Robert C. Martin. Download the PDF version of the book <a href="clean-code.pdf" download>here</a>.</p>
+<span id="more"></span>
+
+<h2 id="Meaningful-Names"><a href="#Meaningful-Names" class="headerlink" title="Meaningful Names"></a>Meaningful Names</h2><h3 id="Use-Intention-Reveraling-Names"><a href="#Use-Intention-Reveraling-Names" class="headerlink" title="Use Intention-Reveraling Names"></a>Use Intention-Reveraling Names</h3><p>The name of a variable, function, or class, should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> d; <span class="hljs-comment">// elapsed time in days</span><br><span class="hljs-keyword">int</span> elapsedTimeInDays;<br></code></pre></td></tr></table></figure>
+
+<p><strong>Implicity</strong> of the code: the degree to which the context is not explicit in the code itself.</p>
+<h3 id="Avoid-Disinformation"><a href="#Avoid-Disinformation" class="headerlink" title="Avoid Disinformation"></a>Avoid Disinformation</h3><p>We should avoid words whose entrenched meanings vary from our intended meaning.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> hp, aix, sco;<br><span class="hljs-keyword">int</span> l, O; <span class="hljs-comment">// looks like the constants 1 and 0, respectively</span><br></code></pre></td></tr></table></figure>
+
+<p>Spelling similar concepts similarly is <strong>information</strong>. Using inconsistent spellings is <strong>disinformation</strong>.</p>
+<h3 id="Make-Meaningful-Distinctions"><a href="#Make-Meaningful-Distinctions" class="headerlink" title="Make Meaningful Distinctions"></a>Make Meaningful Distinctions</h3><p>Number-series naming is noninformative.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">string date1, date2;<br></code></pre></td></tr></table></figure>
+
+<p>Noise words are redundant and another meaningless distinction.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> product, productObject, productData, productInfo;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Use-Pronounceable-Names"><a href="#Use-Pronounceable-Names" class="headerlink" title="Use Pronounceable Names"></a>Use Pronounceable Names</h3><p>Programming is a social activity. Make names pronounceable so that intelligent conversations are possible.</p>
+<h3 id="Use-Searchable-Names"><a href="#Use-Searchable-Names" class="headerlink" title="Use Searchable Names"></a>Use Searchable Names</h3><p>Single-letter names and numeric constants are not easy to locate across a body of text. In this regard, longer names trump shorter names, and any searchable name trumps a constant in code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> realDaysPerIdealDay = <span class="hljs-number">4</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> WORK_DAYS_PER_WEEK = <span class="hljs-number">5</span>;<br></code></pre></td></tr></table></figure>
+
+<p>The length of a name should correspond to the size of its scope.</p>
+<h3 id="Avoid-Encodings"><a href="#Avoid-Encodings" class="headerlink" title="Avoid Encodings"></a>Avoid Encodings</h3><p>Encoding type or scope information into names simply adds an extra burden of deciphering.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">string strFirstName;<br><span class="hljs-keyword">int</span> nUsers;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Avoid-Mental-Mapping"><a href="#Avoid-Mental-Mapping" class="headerlink" title="Avoid Mental Mapping"></a>Avoid Mental Mapping</h3><p>Single-letter names for loop counters are traditional, but in most other context a single-letter name is a poor choice.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> i, j, k;<br></code></pre></td></tr></table></figure>
+
+<p>Professional programmers understand that <strong>clarity</strong> is king.</p>
+<h3 id="Class-Names"><a href="#Class-Names" class="headerlink" title="Class Names"></a>Class Names</h3><p>Classes and objects should have noun or noun phrase names. A class name should not be a verb.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Customer, WikiPage, Account, AddressParser;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Method-Names"><a href="#Method-Names" class="headerlink" title="Method Names"></a>Method Names</h3><p>Methods should have verb or verb phrase names. Accessors, mutators, and predicates should be named for their value and prefixed with <code>get</code>, <code>set</code>, and <code>is</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">string name = employee.getName();<br>customer.setName(<span class="hljs-string">&quot;mike&quot;</span>);<br><span class="hljs-keyword">if</span> (paycheck.isPosted())...<br></code></pre></td></tr></table></figure>
+
+<h3 id="Avoid-Ambiguity"><a href="#Avoid-Ambiguity" class="headerlink" title="Avoid Ambiguity"></a>Avoid Ambiguity</h3><p>Pick one word for one abstract concept and stick with it. A consistent lexicon is a great boon.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Controller, Manager, Driver;<br></code></pre></td></tr></table></figure>
+
+<p>Avoid using the same word for two purposes with different <strong>semantics</strong>. </p>
+<h3 id="Solution-and-Problem-Domain-Names"><a href="#Solution-and-Problem-Domain-Names" class="headerlink" title="Solution and Problem Domain Names"></a>Solution and Problem Domain Names</h3><p>Use the name from the solution domain such as computer science terms, algorithm names, patter names, math terms, and so forth.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">AccountVisitor, JobQueue;<br></code></pre></td></tr></table></figure>
+
+<p>Seperate solution and problem domain concepts.</p>
+<h3 id="Add-Meaningful-Context"><a href="#Add-Meaningful-Context" class="headerlink" title="Add Meaningful Context"></a>Add Meaningful Context</h3><p>Place names in context by enclosing them in well-named classes, functions, or namespaces.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">string firstName, lastName, addrState, addrCity;<br></code></pre></td></tr></table></figure>
+
+<p>Shorter names are generally better than longer ones, so long as they are clear. Add no more context to a name than is necessary.</p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><h3 id="Keep-Functions-Small"><a href="#Keep-Functions-Small" class="headerlink" title="Keep Functions Small"></a>Keep Functions Small</h3><p>The whole function must fit into the screen and not too wide so that it’s easy to read without scrolling. Every function should be around four lines long.</p>
+<p>This implies that the blocks within <code>if</code>, <code>else</code>, <code>while</code> statements should be a function call which also adds documentary value.</p>
+<p>The indent level of a function should not be greater than one or two.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">renderPageWithSetupsAndTeardowns</span> <span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function">    PageData pageData, <span class="hljs-keyword">boolean</span> isSuite)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>    <span class="hljs-keyword">if</span> (isTestPage(pageData))<br>        includeSetupAndTeardownPages(pageData, isSuite);<br>    <span class="hljs-keyword">return</span> pageData.getHtml();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Do-One-Thing"><a href="#Do-One-Thing" class="headerlink" title="Do One Thing"></a>Do One Thing</h3><blockquote>
+<p>Functions should do one thing. They should do it well. They should do it only.</p>
+</blockquote>
+<p>The reason we write functions is to decompose a larger concept into a set of steps at the next level of abstraction.</p>
+<p>A function is doing more than one thing if we can extract another function from it with a name that is not merely a restatement of its implementation.</p>
+<h3 id="One-Level-of-Abstraction-per-Function"><a href="#One-Level-of-Abstraction-per-Function" class="headerlink" title="One Level of Abstraction per Function"></a>One Level of Abstraction per Function</h3><p>Mixing levels of abstraction within a function is always confusing.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">pageData.getHtml(); <span class="hljs-comment">// high level</span><br>String pagePathName = PathParser.render(pagePath); <span class="hljs-comment">// intermediate level</span><br>buffer.append(<span class="hljs-string">&quot;\n&quot;</span>); <span class="hljs-comment">// low level</span><br></code></pre></td></tr></table></figure>
+
+<p><em>The Stepdown Rule</em>: Every function should be followed by those at the next level of abstraction so that we can read the program as though it were a set of paragraphs.</p>
+<h3 id="Avoid-Switch-Statements"><a href="#Avoid-Switch-Statements" class="headerlink" title="Avoid Switch Statements"></a>Avoid Switch Statements</h3><p>Use polymorphism and bury the switch statement in the basement of an abstract factory.</p>
+<h3 id="Use-Descriptive-Names"><a href="#Use-Descriptive-Names" class="headerlink" title="Use Descriptive Names"></a>Use Descriptive Names</h3><p>A long descriptive name is better than a short enigmatic name.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">includeTeardownPages();<br>includeSuiteTeardownPage();<br></code></pre></td></tr></table></figure>
+
+<p>Try serveral different names and read the code with each in place. Be consistent in your names.</p>
+<h3 id="Function-Arguments"><a href="#Function-Arguments" class="headerlink" title="Function Arguments"></a>Function Arguments</h3><p>The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible.</p>
+<h4 id="Common-Monadic-Forms"><a href="#Common-Monadic-Forms" class="headerlink" title="Common Monadic Forms"></a>Common Monadic Forms</h4><p>There are three reasons to pass a single argument into a function.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// asking a question about the argument</span><br><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">fileExists</span><span class="hljs-params">(<span class="hljs-string">&quot;MyFile&quot;</span>)</span></span>;<br><span class="hljs-comment">// operating on the argument, transforming it, and returning it</span><br><span class="hljs-function">InputStream <span class="hljs-title">fileOpen</span><span class="hljs-params">(<span class="hljs-string">&quot;MyFile&quot;</span>)</span></span>;<br><span class="hljs-comment">// using the argument to alter the state of the system (an event)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">passwordAttemptFailedNtimes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> attempts)</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="Flag-Arguments"><a href="#Flag-Arguments" class="headerlink" title="Flag Arguments"></a>Flag Arguments</h4><p>Passing a boolean into a function is a terrible practice.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">render(<span class="hljs-keyword">boolean</span> isSuite);<br><span class="hljs-comment">// split the function into two</span><br>renderForSuite();<br>renderForSingleTest();<br></code></pre></td></tr></table></figure>
+
+<h4 id="Dyadic-Functions"><a href="#Dyadic-Functions" class="headerlink" title="Dyadic Functions"></a>Dyadic Functions</h4><p>A function with two arguments is harder to understand than a monadic function.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Point p = <span class="hljs-keyword">new</span> Point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>assertEquals(expected, actual);<br></code></pre></td></tr></table></figure>
+
+<h4 id="Triads"><a href="#Triads" class="headerlink" title="Triads"></a>Triads</h4><p>For triads, the issues of ordering, pausing, and ignoring are more than doubled.</p>
+<h4 id="Argument-Objects"><a href="#Argument-Objects" class="headerlink" title="Argument Objects"></a>Argument Objects</h4><p>Arguments can be wrapped into a class of their own.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">Circle <span class="hljs-title">makeCircle</span><span class="hljs-params">(Point center, <span class="hljs-keyword">double</span> radius)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Argument-Lists"><a href="#Argument-Lists" class="headerlink" title="Argument Lists"></a>Argument Lists</h4><p>Sometimes we want to pass a variable number of arguments into a function.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">format</span><span class="hljs-params">(String format, Object... args)</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="Verbs-and-Keywords"><a href="#Verbs-and-Keywords" class="headerlink" title="Verbs and Keywords"></a>Verbs and Keywords</h4><p>Function names can explain the intent of the function and the order and intent of the arguments. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">writeField(name);<br>assertExpectedEqualsActual(expected, actual);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Avoid-Side-Effects"><a href="#Avoid-Side-Effects" class="headerlink" title="Avoid Side Effects"></a>Avoid Side Effects</h3><p>Functions can make unexpected changes to variables of its own class, parameters passed into the function or system globals. This can result in strange temporal couplings and order dependencies.</p>
+<p>Arguments are most naturally interpreted as inputs to a function. Anything that forces you to check the function signature is a cognitive break and should be avoided.</p>
+<h3 id="Command-Query-Seperation"><a href="#Command-Query-Seperation" class="headerlink" title="Command Query Seperation"></a>Command Query Seperation</h3><p>Functions should either do something or answer something, but not both.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (set(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;unclebob&quot;</span>))...<br><span class="hljs-comment">// seperate the command from the query</span><br><span class="hljs-keyword">if</span> (attributeExists(<span class="hljs-string">&quot;username&quot;</span>)) &#123;<br>    setAttribute(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;unclebob&quot;</span>);<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Prefer-Exceptions-to-Returning-Error-Codes"><a href="#Prefer-Exceptions-to-Returning-Error-Codes" class="headerlink" title="Prefer Exceptions to Returning Error Codes"></a>Prefer Exceptions to Returning Error Codes</h3><p>Returning error codes from command functions violates command query seperation, leading to deeply nested structures.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (deletePage(page) == E_OK)...<br><span class="hljs-comment">// use exceptions instead of returned error codes</span><br><span class="hljs-keyword">try</span> &#123;<br>    deletePage(page);<br>&#125;<br><span class="hljs-keyword">catch</span> (Exception e) &#123;<br>    logger.log(e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>It is better to extract the bodies of the <code>try</code> and <code>catch</code> blocks out into functions of their own. A function that handles errors should do nothing else.</p>
+<h3 id="Avoid-Repetition"><a href="#Avoid-Repetition" class="headerlink" title="Avoid Repetition"></a>Avoid Repetition</h3><p>Duplication is a problem because it bloats the code, requires manifold modification for a change of algorithm and magnifies opportunity for an error of omission.</p>
+<h3 id="Structured-Programming"><a href="#Structured-Programming" class="headerlink" title="Structured Programming"></a>Structured Programming</h3><blockquote>
+<p>Every function, and every block within a function, should have one entry and one exit.</p>
+</blockquote>
+<p>There should only be one <code>return</code> statement in a function, no <code>break</code> or <code>continue</code> statements in a loop, and never any <code>goto</code> statements. It is only in larger functions that such rules provide significant benefit.</p>
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>The proper use of comments is to compensate for our failure to express ourself in code. Programmers cannot realistically maintain comments.</p>
+<p>Inaccurate comments are far worse than no comments at all.</p>
+<h3 id="Comments-Do-Not-Make-Up-for-Bad-Code"><a href="#Comments-Do-Not-Make-Up-for-Bad-Code" class="headerlink" title="Comments Do Not Make Up for Bad Code"></a>Comments Do Not Make Up for Bad Code</h3><p>Clear and expressive code with few comments is far superior to cluttered and complex code with lots of comments.</p>
+<h3 id="Explain-Yourself-in-Code"><a href="#Explain-Yourself-in-Code" class="headerlink" title="Explain Yourself in Code"></a>Explain Yourself in Code</h3><p>There are times when code makes a poor vehicle for explanation. In many cases it’s simple to create a function that says the same thing as the comment you want to write.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Check to see if the employee is eligible for full benefits</span><br><span class="hljs-keyword">if</span> ((employee.flags &amp; HOURLY_FLAG) &amp;&amp;<br>    (employee.age &gt; <span class="hljs-number">65</span>))<br><br><span class="hljs-keyword">if</span> (employee.isEligibleForFullBenefits())<br></code></pre></td></tr></table></figure>
+
+<h3 id="Good-Comments"><a href="#Good-Comments" class="headerlink" title="Good Comments"></a>Good Comments</h3><p>Some comments are necessary or beneficial.</p>
+<h4 id="Legal-Comments"><a href="#Legal-Comments" class="headerlink" title="Legal Comments"></a>Legal Comments</h4><p>Copyright and authorship statements are necessary and reasonable things to put into a comment at the start of each source file.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Copyright (C) 2003,2004,2005 by Object Mentor, Inc. All rights reserved.</span><br><span class="hljs-comment">// Released under the terms of the GNU General Public License version 2 or later.</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="Informative-Comments"><a href="#Informative-Comments" class="headerlink" title="Informative Comments"></a>Informative Comments</h4><p>It is sometimes useful to provide basic information with a comment.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// format matched kk:mm:ss EEE, MMM dd, yyyy</span><br>Pattern timeMatcher = Pattern.compile(<br>    *\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d**);<br></code></pre></td></tr></table></figure>
+
+<h4 id="Explanation-of-Intent"><a href="#Explanation-of-Intent" class="headerlink" title="Explanation of Intent"></a>Explanation of Intent</h4><p>Sometimes a comment provides the intent behind a decision.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// This is our best attempt to get a race condition</span><br><span class="hljs-comment">// by creating large number of threads.</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">25000</span>; i++) &#123;<br>    WidgetBuilderThread widgetBuilderThread = <br>        <span class="hljs-keyword">new</span> WidgetBuilderThread(widgetBuilder, text, parent, failFlag);<br>    Thread thread = <span class="hljs-keyword">new</span> Thread(widgetBuilderThread);<br>    thread.start();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Sometimes it is helpful to translate the meaning of some obscure argument or return value into something that’s readable.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">assertTrue(a.compareTo(a) == <span class="hljs-number">0</span>); <span class="hljs-comment">// a == a</span><br>assertTrue(a.compareTo(b) == -<span class="hljs-number">1</span>); <span class="hljs-comment">// a &lt; b</span><br></code></pre></td></tr></table></figure>
+
+<p>There is a substantial risk that a clarifying comment is incorrect and it is diffcult to verify.</p>
+<h4 id="Warning-of-Consequences"><a href="#Warning-of-Consequences" class="headerlink" title="Warning of Consequences"></a>Warning of Consequences</h4><p>Sometimes it is useful to warn other programmers about certain consequences.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// SimpleDateFormat is not thread safe,</span><br><span class="hljs-comment">// so we need to create each instance independently.</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SimpleDateFormat <span class="hljs-title">makeStandardHttpDateFormat</span><span class="hljs-params">()</span>...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="TODO-Comments"><a href="#TODO-Comments" class="headerlink" title="TODO Comments"></a>TODO Comments</h4><p>It is sometimes reasonable to leave “To do” notes in the form of <code>TODO</code> comments.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// TODO-MdM these are not needed</span><br><span class="hljs-comment">// We expect this to go away when we do the checkout model</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> VersionInfo <span class="hljs-title">makeVersion</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>TODO</code>s are jobs that the programmer thinks should be done, not an excuse to leave bad code in the system.</p>
+<h4 id="Amplification"><a href="#Amplification" class="headerlink" title="Amplification"></a>Amplification</h4><p>A comment may be used to Amplify the importance of something that may otherwise seem inconsequential.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">String listItemContent = match.group(<span class="hljs-number">3</span>).trim();<br><span class="hljs-comment">// the trim is real important. It removes the starting</span><br><span class="hljs-comment">// spaces that could cause the item to be recognized</span><br><span class="hljs-comment">// as another list.</span><br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Notes/">Notes</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Programming/">Programming</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Coding/">Coding</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    All articles in this blog are used except for special statements <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="nofollow noopener noopener">CC BY-SA 4.0</a> reprint policy. If reproduced, please indicate source <a href="https://ziyizhu.me/about" rel="nofollow noopener">Ziyi Zhu</a>!
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/13/principles/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Principles By Ray Dalio: Short Summary</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/19/time-series/">
+                        <span class="hidden-mobile">Granger Causality and Hypothesis Testing</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://ziyizhu.me/2021/10/12/clean-code/';
+          this.page.identifier = '/2021/10/12/clean-code/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'ziyi-zhu' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_pv"></span>
+             views
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_uv"></span>
+             visitors
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-180x180.png">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Welcome to my personal blog.">
+  <meta name="author" content="Ziyi Zhu">
+  <meta name="keywords" content="Ziyi Zhu,Ziyi,blog,software,engineering,Cambridge">
+  
+  <title>Principles By Ray Dalio: Short Summary - Creative Overdose</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"ziyizhu.me","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Creative Overdose</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://zhuziyi.wixsite.com/portfolio/">
+                <i class="iconfont icon-brush"></i>
+                Portfolio
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Principles By Ray Dalio: Short Summary">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Ziyi Zhu
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-13 11:30" pubdate>
+        October 13, 2021 11:30 AM
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45
+       minutes
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> views
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Principles By Ray Dalio: Short Summary</h1>
+            
+              <p class="note note-info">
+                
+                  Last edited on: October 13, 2021 10:19 PM
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>In Principles, Ray Dalio lays down the rules and frameworks he uses to navigate his life. The book explores truth-seeking, decision-making, and the implementation of systems to achieve success. Afterward, Ray goes over the management principles he used to build his multibillion-dollar hedge fund, Bridgewater.</p>
+<h2 id="Fundamental-Life-Principles"><a href="#Fundamental-Life-Principles" class="headerlink" title="Fundamental Life Principles"></a>Fundamental Life Principles</h2><p><strong>Ray Dalio’s 5 guiding principles for work:</strong></p>
+<ol>
+<li><strong>Working for what he wanted</strong>, not for what others wanted him to do</li>
+<li><strong>Coming up with the best independent opinions</strong> he could conveive</li>
+<li><strong>Stress-testing his opinions</strong> by having the smartest people finding the flaws in his thinking</li>
+<li>Being wary about <strong>overconfidence</strong>, and good at not knowing</li>
+<li><strong>Embracing reality</strong>, experiencing the results of his decisions, and reflecting on what he did to improve.</li>
+</ol>
+<blockquote>
+<p>While most others seem to believe that having answers is better than having questions, I believe that having questions is better than having answers because it leads to more learning.</p>
+</blockquote>
+<h3 id="Embrace-Reality-and-Deal-With-It"><a href="#Embrace-Reality-and-Deal-With-It" class="headerlink" title="Embrace Reality and Deal With It"></a>Embrace Reality and Deal With It</h3><p>The quality of your life depends on the quality of the decisions you make.</p>
+<p><strong>Hyperrealism: accepting the reality as it is rather than wishing it was different.</strong> Understanding the reality allows you to learn how to work with them rather than fight with them, which leads to greater success.</p>
+<blockquote>
+<p>Truth - more precisely, an accurate understanding of reality - is the essential foundation for producing good outcomes.</p>
+</blockquote>
+<p>Don’t get hung up on your views about how things should be because then you’ll miss out on learning how they really are.</p>
+<h3 id="The-Personal-Evolutionary-Process"><a href="#The-Personal-Evolutionary-Process" class="headerlink" title="The Personal Evolutionary Process"></a>The Personal Evolutionary Process</h3><p>Evolution, which is the natural movement towards better adaptation, is the greatest single force in the universe. Pursuing self-interest in harmony with the laws of the universe and contributing to evolution is universally rewarded.</p>
+<p>The most important quality that differentiates successful people from unsuccessful people is our capacity to learn and adapt to things that we value.</p>
+<p><strong>Reality + Dreams + Determination = A Successful Life</strong></p>
+<blockquote>
+<p>The people who really change the world are the ones who see what’s possible and figure out how to make that happen.</p>
+</blockquote>
+<h3 id="Your-Most-Important-Choices"><a href="#Your-Most-Important-Choices" class="headerlink" title="Your Most Important Choices"></a>Your Most Important Choices</h3><p>To reach your goals faster, you need to change how you deal with these 5 types of choices:</p>
+<ol>
+<li><strong>Embracing pain that comes with pushing your limits.</strong> It is a fundamental law of nature that to evolve one has to push one’s limits in order to gain strength. <strong>Pain + Reflection = Progress</strong></li>
+<li><strong>Accepting reality</strong>. People who know that understanding what is real is the first step toward optimally dealing with it make better decision.</li>
+<li><strong>Worrying about reachings your goals rather than looking good.</strong> People who hide their weaknesses never learn how to properly deal with them and these weaknesses remain impediments in the future. </li>
+<li><strong>Embracing first-order consequences, even when they are undesirable.</strong> People who overweigh the first-order consequences of their decisions and ignore the effects of second- and subsequent-order consequences rarely reach their goals.</li>
+<li><strong>Taking ownership of your outcomes.</strong> Successful people understand that bad things come at everyone and that it is their responsibility to make their lives what they want them to be by successfully dealing with whatever challenges they face.</li>
+</ol>
+<blockquote>
+<p>In summary, I believe that you can probably get what you want out of life if you can suspend your ego and take a no-excuse approach to achieving your goals with open-mindedness, determination, and courage, especially if you rely on the help of people who are strong in areas that you are weak.</p>
+</blockquote>
+<h3 id="You-Two-Yous-and-Your-Machine"><a href="#You-Two-Yous-and-Your-Machine" class="headerlink" title="You Two Yous and Your Machine"></a>You Two Yous and Your Machine</h3><blockquote>
+<p>You do not rise to the level of your goals. You fall to the level of your systems.</p>
+</blockquote>
+<p>Think of yourself as a machine operating within a machine and know that you have the ability to alter your machines to produce better outcomes.</p>
+<p><img src="principles-machine.webp" srcset="/img/loading.gif" lazyload></p>
+<p>To working on your machine, you need to seperate your two personalities:</p>
+<ul>
+<li>The <strong>Designer</strong>: the one who manages and plans the systems to achieve your goals</li>
+<li>The <strong>doer</strong>: the one who works according to the plan created ny the Designer</li>
+</ul>
+<p>Your job as a Designer is to look at your resources and yourself as a Doer objectively to <strong>create the most efficient machine possible</strong>.</p>
+<p>If you are not the best person for a job, fire yourself and find a good replacement.</p>
+<h3 id="5-Step-Process-to-Get-What-You-Want-Out-of-Life"><a href="#5-Step-Process-to-Get-What-You-Want-Out-of-Life" class="headerlink" title="5-Step Process to Get What You Want Out of Life"></a>5-Step Process to Get What You Want Out of Life</h3><p>The process consists of five distinct steps:</p>
+<ol>
+<li><strong>Setting clear goals.</strong> To achieve your goals you have to prioritize, and that includes rejecting good alternatives. Avoid setting goals based on what you think you can achieve.</li>
+<li><strong>Identifying and not tolerating problems.</strong> Most problems are potential improvements screaming at you. Don’t confuse problems with causes.</li>
+<li><strong>Diagnosing the problem’s root cause.</strong> The most important qualities for successful diagnosing problems are logic, the ability to see multiple probabilities, and the willingness to touch people’s nerves to overcome the ego barriers that stand in the way of truth.</li>
+<li><strong>Designing the plan and determining the solutions.</strong> Creating a design is like writing a movie script in that you visualize who will do what through time in order to achieve the goal.</li>
+<li><strong>Doing the tasks set forward in the plan.</strong> It is critical to know each day what you need to do and have the discipline to be proactive.</li>
+</ol>
+<p>How often you take the cycle will dictate how fast you and your machine improves.</p>
+<p><strong>Values -&gt; 1) Goals -&gt; 2) Problems -&gt; 3) Diagnoses -&gt; 4) Designs -&gt; 5) Tasks</strong></p>
+<p><img src="principles-process.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Be-radically-Open-Minded"><a href="#Be-radically-Open-Minded" class="headerlink" title="Be radically Open Minded"></a>Be radically Open Minded</h3><p>Recognize your two barriers: <strong>your ego and your blind spots.</strong> Those who adapt do so by:</p>
+<ol>
+<li>Teaching their brains to work in a way that doesn’t come naturally like the creative designing an organization system.</li>
+<li>Using compensating mechanisms like programmed reminders.</li>
+<li>Relying on the help of others who are strong where they are weak.</li>
+</ol>
+<p><strong>Practice radical open-mindedness.</strong> Decision making is a two-step process: first take in all the relevant information, then decide. You’re looking for the best answer, not simply the best answer that you can come up with yourself.</p>
+<p><strong>Appreciate the art of thoughtful disagreement.</strong> Open-mindedness isn’t easy because of your lizard brain, so you have to practice taking feedback impersonally.</p>
+<h2 id="Management-Principles"><a href="#Management-Principles" class="headerlink" title="Management Principles"></a>Management Principles</h2><h3 id="Get-the-Culture-Right"><a href="#Get-the-Culture-Right" class="headerlink" title="Get the Culture Right"></a>Get the Culture Right</h3><blockquote>
+<p>Make your passion and your work one and the same and do it with people you want to be with.</p>
+</blockquote>
+<ol>
+<li><strong>Trust in Radical Truth and Radical Transparency.</strong> <ol>
+<li>Realize that you have nothing to fear from knowing the truth.</li>
+<li>Never say anything about someone that you wouldn’t say to them directly and don’t try people without accusing them to their faces.</li>
+</ol>
+</li>
+<li><strong>Cultivate Meaningful Work and Meaningful Relationships</strong></li>
+<li><strong>Create a Culture in Which It Is Okay to Make Mistakes and Unacceptable Not to Learn From Them.</strong><ol>
+<li>Observe the patterns of mistakes to see if they are a product of weakness.</li>
+<li>Get over “blame” and “credit” and get on with “accurate” and “inaccurate”.</li>
+<li>Write down your weaknesses and the weaknesses of others to help remember and acknowledge them.</li>
+<li>Be self-reflective and make sure your people are self-reflective</li>
+<li>Teach and reinforce the merits of mistake-based learning.</li>
+</ol>
+</li>
+<li><strong>Get and Stay in Syn.</strong><ol>
+<li>Constantly get in synch about what is true and what to do about it.</li>
+<li>Be assertive and open-minded at the same time.</li>
+<li>Make sure responsible parties are open-minded about the questions and comments of others</li>
+<li>Recognize that conflicts are essential for great relationships because they are the means by which people determine whether their principles are aligned and resolve their difference.</li>
+<li>Dont’t treat all opinions as equally valuable.</li>
+<li>Make sure people don’t confuse their right to complain, give advice, and debate with the right to make decisions.</li>
+</ol>
+</li>
+</ol>
+<h3 id="Get-the-Right-People"><a href="#Get-the-Right-People" class="headerlink" title="Get the Right People"></a>Get the Right People</h3><ol>
+<li><strong>Recognize the Most Important Decisions You Make Are Who You Choose to Be Your Responsible Party.</strong><ol>
+<li>Remember that almost everything good comes from having great people operating in a great culture.</li>
+<li>The most important responsible parties are those who are most responsible for the goals, outcomes, and machines</li>
+<li>Choose those who understand the difference between goals and tasks to run things</li>
+</ol>
+</li>
+<li><strong>Recognize that People Are Built Very Differently.</strong><ol>
+<li>Think about their very different values, abilities, and skills.</li>
+<li>Recognize that the type of person you fit in the job must match the requirements for that job.</li>
+<li>Understand that different ways of seeing things and think one way often have difficulty communicating and relating to people who see things and think another way.</li>
+</ol>
+</li>
+<li><strong>Hire Right, Because the Penalties for Hiring Wrong are Huge.</strong><ol>
+<li>Think though what values, abilities, and skills you are looking for.</li>
+<li>Weigh values and abilities more heavily than skills in deciding whom to hire.</li>
+<li>Write the profile of the person you are looking for into the job description.</li>
+<li>Look for people who have lots of great questions.</li>
+<li>Don’t hire people just to fit the first job they will do at your company; hire people you want to share your life with.</li>
+<li>Pay for the person, not for the job.</li>
+<li>Recognize there is a high probability that the person you hire will not be the great person you need for the job.</li>
+</ol>
+</li>
+</ol>
+<h3 id="Build-and-Evolve-Your-Machine"><a href="#Build-and-Evolve-Your-Machine" class="headerlink" title="Build and Evolve Your Machine"></a>Build and Evolve Your Machine</h3><ol>
+<li><strong>Managing as Someone Operating a Machine to Achieve a Goal.</strong><ol>
+<li>Understand the differences between managing, micromanaging, and not managing.</li>
+<li>Constantly compare your outcomes to your goals.</li>
+<li>Clearly assign responsibilities.</li>
+<li>Hold people accountable and appreciate them holding you accountable.</li>
+<li>Think like an owner, and expect the people you work with to do the same.</li>
+<li>Force yourself and the people who work for you to do difficult things.</li>
+<li>Communicate the plan clearly.</li>
+<li>Learn confidence in your people - don’t presume it.</li>
+<li>While logic drives our decisions, feelings are very relevant.</li>
+<li>Escalate when you can’t adequately handle your responsibilities, and make sure that people who work for you do the same.</li>
+</ol>
+</li>
+<li><strong>Probe Deep and Hard to Learn What to Expect from Your “Machine”.</strong><ol>
+<li>Know what your people are like, and make sure they do their jobs excellently.</li>
+<li>Constantly probe the people who report to you, and encourage them to probe you.</li>
+<li>Probe to the level below the people who work for you.</li>
+<li>Don’t “pick your battles.” Fight them all</li>
+<li>Don’t let people off the hook</li>
+<li>Don’t assume that people’s answers are correct</li>
+<li>Make the probing transparent rather than private</li>
+</ol>
+</li>
+<li><strong>Evaluate People Accurately, Not “Kindly”.</strong><ol>
+<li>Evaluate employees with the same rigor as you evaluate job candidates</li>
+<li>Know what makes your people tick, because people are your most important resource</li>
+<li>Recognize that while most people prefer compliments over criticisms, there is nothing more valuable than accurate criticisms</li>
+<li>Understand that you and the people you manage will go through a process of personal evolution</li>
+<li>Help people through the pain that comes with exploring their weaknesses</li>
+<li>Remember that you don’t need to get to the point of “beyond a shadow of a doubt” when judging people</li>
+</ol>
+</li>
+<li><strong>Train and Test People Through Experiences.</strong><ol>
+<li>Provide constant feedback to put the learning in perspective</li>
+<li>Remember that everything is a case study</li>
+<li>Know what types of mistakes are acceptable and unacceptable, and don’t allow the people who work for you to make the unacceptable ones</li>
+<li>When you find that someone is not a good “click” for a job, get them out of it ASAP</li>
+<li>Know that it is much worse to keep someone in a job who is not suited for it than it is to fire someone</li>
+<li>Do not lower the bar</li>
+</ol>
+</li>
+</ol>
+<h3 id="Perceive-Diagnose-and-Solve-Problems"><a href="#Perceive-Diagnose-and-Solve-Problems" class="headerlink" title="Perceive, Diagnose, and Solve Problems"></a>Perceive, Diagnose, and Solve Problems</h3><ol>
+<li><strong>Know How to Perceive Problems Effectively.</strong><ol>
+<li>Have as many eyes looking for problems as possible</li>
+<li>Don’t use the anonymous “we” and “they,” because that masks personal responsibility—use specific names</li>
+<li>Be very specific about problems; don’t start with generalizations</li>
+<li>Use the following tools to catch problems: issues logs, metrics, surveys, checklists, outside consultants, and internal auditors</li>
+<li>The most common reason problems aren’t perceived is what I call the “frog in the boiling water” problem</li>
+</ol>
+</li>
+<li><strong>Diagnose to Understand What the Problems Are Symptomatic Of.</strong><ol>
+<li>Recognize that all problems are just manifestations of their root causes, so diagnose to understand what the problems are symptomatic of</li>
+<li>Ask the following questions when diagnosing</li>
+<li>To distinguish between a capacity issue and a capability issue, imagine how the person would perform at that particular function if they had ample capacity.</li>
+<li>Keep in mind that diagnoses should produce outcomes</li>
+</ol>
+</li>
+<li><strong>Design Your Machine to Achieve Your Goals.</strong><ol>
+<li>Don’t act before thinking. Take the time to come up with a game plan</li>
+<li>Recognize that design is an iterative process; between a bad “now” and a good “then” is a “working through it” period</li>
+<li>Most importantly, build the organization around goals rather than tasks</li>
+<li>Everyone must be overseen by a believable person who has high standards</li>
+<li>Do not build the organization to fit the people</li>
+<li>Have the clearest possible delineation of responsibilities and reporting lines</li>
+<li>Assign responsibilities based on workflow design and people’s abilities, not job titles</li>
+<li>Think clearly how things should go, and when they aren’t going that way, acknowledge it and investigate</li>
+</ol>
+</li>
+<li><strong>Recognize the Power of Knowing How to Deal with Not Knowing.</strong><ol>
+<li>Finding the path to success is at least as dependent on coming up with the right questions as coming up with answers.</li>
+<li>Remember that your goal is to find the best answer, not to give the best one you have.</li>
+</ol>
+</li>
+<li><strong>Remember the 80/20 Rule, and Know What the Key 20% Is.</strong><ol>
+<li>Don’t mistake small things for unimportant things, because some small things can be very important</li>
+<li>Make sure all the “must do’s” are above the bar before you do anything else</li>
+<li>The best choices are the ones with more pros than cons, not those that don’t have any cons</li>
+</ol>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Notes/">Notes</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Coding/">Coding</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    All articles in this blog are used except for special statements <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" rel="nofollow noopener noopener">CC BY-SA 4.0</a> reprint policy. If reproduced, please indicate source <a href="https://ziyizhu.me/about" rel="nofollow noopener">Ziyi Zhu</a>!
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/12/clean-code/">
+                        <span class="hidden-mobile">A Short Summary on Clean Code</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://ziyizhu.me/2021/10/13/principles/';
+          this.page.identifier = '/2021/10/13/principles/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'ziyi-zhu' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_pv"></span>
+             views
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            Total 
+            <span id="busuanzi_value_site_uv"></span>
+             visitors
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
