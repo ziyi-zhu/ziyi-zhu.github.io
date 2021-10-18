@@ -45,9 +45,9 @@
     
     <tags>
       
-      <tag>Programming</tag>
-      
       <tag>Coding</tag>
+      
+      <tag>Programming</tag>
       
       <tag>Java</tag>
       
@@ -237,13 +237,13 @@
     
     <tags>
       
+      <tag>Computer vision</tag>
+      
       <tag>Node.js</tag>
       
       <tag>Javascript</tag>
       
       <tag>Matter.js</tag>
-      
-      <tag>Computer vision</tag>
       
       <tag>AR</tag>
       
@@ -332,13 +332,13 @@
     
     <tags>
       
-      <tag>Node.js</tag>
-      
-      <tag>Javascript</tag>
-      
       <tag>Computer vision</tag>
       
       <tag>Computer graphics</tag>
+      
+      <tag>Node.js</tag>
+      
+      <tag>Javascript</tag>
       
       <tag>Image processing</tag>
       
@@ -365,11 +365,11 @@
     
     <tags>
       
-      <tag>Computer vision</tag>
-      
       <tag>OpenCV</tag>
       
       <tag>IoT</tag>
+      
+      <tag>Computer vision</tag>
       
       <tag>Control</tag>
       
